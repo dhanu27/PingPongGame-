@@ -5,7 +5,6 @@ var rodWidth=80;
 var distleft=(canvas.width-rodWidth) / 2;
 function drawRod() {
     ctx.beginPath();
-    // console.log("hjk");
     ctx.rect(distleft, canvas.height-rodHeight, rodWidth, rodHeight);
     ctx.rect(distleft,0, rodWidth, rodHeight);
     ctx.fillStyle = "black";
@@ -15,12 +14,13 @@ function drawRod() {
 var leftmove=false;
 var rightmove=false;
 var lx=2;
+var flag1=false;
 window.addEventListener("keydown",function(event){
-    console.log("jkl0");
-    if(event.keyCode==13)
+    if((!flag1)&&event.keyCode==13)
     {
         startgame();
        window.alert("Lets start the game");
+       flag1=true;
     }
     if(event.keyCode==65){
         leftmove=true;
@@ -48,7 +48,6 @@ var score=0;
 var flag=false;
 var interval=null;
 function draw() {
-    console.log("jkl");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawRod();
